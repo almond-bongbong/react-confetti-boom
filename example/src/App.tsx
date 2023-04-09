@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import Component from 'module-template';
+import { Confetti } from 'react-confetti-boom';
+import './style.css';
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <Component />
+    <div className="app">
+      <Confetti />
     </div>
   );
 }

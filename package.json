@@ -1,7 +1,7 @@
 {
-  "name": "module-template",
+  "name": "react-confetti-boom",
   "version": "1.0.0",
-  "description": "Template for node modules",
+  "description": "react-confetti-boom",
   "author": "",
   "license": "MIT",
   "main": "./lib/index.js",

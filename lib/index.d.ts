@@ -1,3 +1,3 @@
 /// <reference types="react" />
-declare function Component(): JSX.Element;
-export default Component;
+declare function Confetti(): JSX.Element;
+export { Confetti };
