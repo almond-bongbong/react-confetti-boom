@@ -55,7 +55,8 @@ function Confetti() {
   );
 
   const render = useCallback(() => {
-    if (!ctxRef.current) return;
+    const canvas = canvasRef.current;
+    if (!ctxRef.current || !canvas) return;
 
     let now;
     let delta;
@@ -69,7 +70,7 @@ function Confetti() {
       delta = now - then;
       if (delta < INTERVAL) return;
 
-      ctxRef.current.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      ctxRef.current.clearRect(0, 0, canvas.width, canvas.height);
 
       createConfetti({
         x: 0, // 0 ~ 1
