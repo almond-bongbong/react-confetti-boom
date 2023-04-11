@@ -46,7 +46,7 @@ function App() {
       .add(target, 'effectCount', 1, 100)
       .onChange((v) => handleChangeOption('effectCount', v));
     confetti
-      .add(target, 'effectInterval', 0, 10000)
+      .add(target, 'effectInterval', 1, 10000)
       .name('effectInterval (ms)')
       .onChange((v) => handleChangeOption('effectInterval', v));
     confetti

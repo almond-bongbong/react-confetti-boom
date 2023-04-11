@@ -2,6 +2,14 @@
 
 React Confetti Boom is a lightweight, customizable confetti animation component for React applications. Add a fun and engaging confetti effect to your app with just a few lines of code.
 
+[![NPM](https://img.shields.io/npm/v/react-confetti-boom.svg)](https://www.npmjs.com/package/react-confetti-boom)
+
+<p align="center">
+    <a target="_blank" href="https://almond-bongbong.github.io/react-confetti-boom/">
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGUwYTY2MTMwMjU2ZmY4MTk2MWQxMTYwNGI4OTVmZmE0MWFlN2I2NyZjdD1n/aCoLzfMkpOig89q13S/giphy.gif" />
+    </a>
+</p>
+
 ## Installation
 
 ```bash
@@ -27,6 +35,13 @@ function MyApp() {
 
 export default MyApp;
 ```
+
+## Demo
+
+You can check out the live demo of `react-confetti-boom` in action on the following page: [https://almond-bongbong.github.io/react-confetti-boom/](https://almond-bongbong.github.io/react-confetti-boom/)
+
+The demo page provides an interactive way to customize the confetti settings, such as starting position, particle count, angle, shape size, and colors. This helps you visualize how the confetti effect will look in your own project.
+
 
 ## Props
 
