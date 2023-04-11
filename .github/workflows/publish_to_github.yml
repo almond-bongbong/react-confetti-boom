@@ -1,0 +1,46 @@
+name: Publish Github Package
+
+on:
+  release:
+    types: [created]
+#on:
+#  push:
+#    branches:
+#      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@almond-bongbong'
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build package
+        run: yarn build
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Update package.json for GitHub Packages
+        run: |
+          jq '.name = "@almond-bongbong/react-confetti-boom"' package.json > package.temp.json
+          mv package.temp.json package.json
+
+      - name: Publish to GitHub Packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

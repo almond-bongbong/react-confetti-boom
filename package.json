@@ -1,6 +1,6 @@
 {
   "name": "react-confetti-boom",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "react-confetti-boom",
   "author": "",
   "license": "MIT",
@@ -39,6 +39,8 @@
   "keywords": [
     "react",
     "typescript",
-    "module"
+    "module",
+    "confetti",
+    "particle"
   ]
 }

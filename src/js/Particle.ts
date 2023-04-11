@@ -1,4 +1,4 @@
-import { hexToRgb, randomNumBetween } from './utils';
+import { randomNumBetween, hexToRgb } from './utils';
 
 class Particle {
   x: number;
@@ -18,27 +18,32 @@ class Particle {
   rotateDelta: number;
   colors: string[];
   color: { r: number; g: number; b: number };
-  shapes: string[];
+  shapes: readonly ['circle', 'square'];
   shape: string;
+  swingOffset: number;
+  swingSpeed: number;
+  swingAmplitude: number;
 
   constructor(
     x: number,
     y: number,
     deg = 0,
-    colors: string[] = ['#ff577f', '#ff884b', '#ffd384', '#fff9b0'],
-    shapes: ('circle' | 'square')[] = ['circle', 'square'],
+    colors: string[],
+    shapes = ['circle', 'square'] as const,
+    shapeSize = 12,
     spread = 30,
   ) {
-    this.x = x * window.innerWidth;
-    this.y = y * window.innerHeight;
-    this.width = 12;
-    this.height = 12;
+    const DPR = window.devicePixelRatio > 1 ? 2 : 1;
+    this.x = x * window.innerWidth * DPR;
+    this.y = y * window.innerHeight * DPR;
+    this.width = shapeSize;
+    this.height = shapeSize;
     this.theta = (Math.PI / 180) * randomNumBetween(deg - spread, deg + spread);
-    this.radius = randomNumBetween(30, 100);
+    this.radius = randomNumBetween(20, 70);
     this.vx = this.radius * Math.cos(this.theta);
     this.vy = this.radius * Math.sin(this.theta);
-    this.friction = 0.89;
-    this.gravity = 0.5;
+    this.friction = 0.87;
+    this.gravity = 0.55;
     this.opacity = 1;
     this.rotate = randomNumBetween(0, 360);
     this.widthDelta = randomNumBetween(0, 360);
@@ -49,20 +54,24 @@ class Particle {
       this.colors[Math.floor(randomNumBetween(0, this.colors.length))],
     );
     this.shapes = shapes;
-    this.shape =
-      this.shapes[Math.floor(randomNumBetween(0, this.shapes.length))];
+    this.shape = this.shapes[Math.floor(randomNumBetween(0, this.shapes.length))];
+    this.swingOffset = randomNumBetween(0, Math.PI * 2);
+    this.swingSpeed = Math.random() * 0.05 + 0.01;
+    this.swingAmplitude = randomNumBetween(0, 0.4);
   }
 
   update() {
-    this.vy += this.gravity;
     this.vx *= this.friction;
     this.vy *= this.friction;
+    this.vy += this.gravity;
+    if (this.vy > 0) this.vx += Math.sin(this.swingOffset) * this.swingAmplitude;
     this.x += this.vx;
     this.y += this.vy;
-    this.opacity -= 0.005;
+    this.opacity -= 0.004;
     this.widthDelta += 2;
     this.heightDelta += 2;
     this.rotate += this.rotateDelta;
+    this.swingOffset += this.swingSpeed;
   }
 
   drawSquare(ctx: CanvasRenderingContext2D) {
@@ -95,6 +104,7 @@ class Particle {
     ctx.translate(this.x + translateXAlpha, this.y + translateYAlpha);
     ctx.rotate((Math.PI / 180) * this.rotate);
     ctx.translate(-(this.x + translateXAlpha), -(this.y + translateYAlpha));
+    // eslint-disable-next-line no-param-reassign
     ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.opacity})`;
 
     if (this.shape === 'square') this.drawSquare(ctx);

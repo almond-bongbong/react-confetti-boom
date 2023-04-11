@@ -9,11 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "dat.gui": "^0.7.9",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-confetti-boom": "link:.."
+    "react-confetti-boom": "link:..",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/dat.gui": "^0.7.9",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react-swc": "^3.0.0",
