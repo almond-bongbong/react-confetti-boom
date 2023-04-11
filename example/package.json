@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "dat.gui": "^0.7.9",
-    "react": "^18.2.0",
-    "react-confetti-boom": "link:..",
-    "react-dom": "^18.2.0"
+    "react": "link:../node_modules/react",
+    "react-dom": "link:../node_modules/react-dom",
+    "react-confetti-boom": "link:.."
   },
   "devDependencies": {
     "@types/dat.gui": "^0.7.9",
