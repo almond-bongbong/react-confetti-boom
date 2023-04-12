@@ -1,8 +1,9 @@
 {
   "name": "react-confetti-boom",
   "version": "0.0.1",
-  "description": "react-confetti-boom",
-  "author": "",
+  "description": "A customizable React confetti explosion component for celebrations and special events",
+  "author": "almond-bongbong <bal.dongdongdong@gmail.com>",
+  "homepage": "https://github.com/almond-bongbong/react-confetti-boom",
   "license": "MIT",
   "main": "./lib/index.js",
   "module": "./lib/index.esm.js",
@@ -41,6 +42,9 @@
     "typescript",
     "module",
     "confetti",
-    "particle"
+    "particle",
+    "explosion",
+    "celebration",
+    "animation"
   ]
 }
