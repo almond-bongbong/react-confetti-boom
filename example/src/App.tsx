@@ -37,7 +37,7 @@ function App() {
     const confetti = gui.addFolder('Confetti');
     confetti.open();
     confetti
-      .add(target, 'particleCount', 0, 100)
+      .add(target, 'particleCount', 0, 500)
       .onChange((v) => handleChangeOption('particleCount', v));
     confetti
       .add(target, 'deg', 0, 360)
