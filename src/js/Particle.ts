@@ -32,6 +32,7 @@ class Particle {
     shapes = ['circle', 'square'] as const,
     shapeSize = 12,
     spread = 30,
+    launchSpeed = 1,
   ) {
     const DPR = window.devicePixelRatio > 1 ? 2 : 1;
     this.x = x * window.innerWidth * DPR;
@@ -58,6 +59,8 @@ class Particle {
     this.swingOffset = randomNumBetween(0, Math.PI * 2);
     this.swingSpeed = Math.random() * 0.05 + 0.01;
     this.swingAmplitude = randomNumBetween(0, 0.4);
+
+    console.log(launchSpeed);
   }
 
   update() {

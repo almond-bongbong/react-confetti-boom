@@ -15,6 +15,7 @@ interface Props {
   effectInterval?: number;
   effectCount?: number;
   colors?: string[];
+  launchSpeed?: number;
 }
 
 function Confetti({
@@ -27,6 +28,7 @@ function Confetti({
   effectInterval = 3000,
   effectCount = 1,
   colors = ['#ff577f', '#ff884b', '#ffd384', '#fff9b0'],
+  launchSpeed = 1,
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D>();
@@ -51,33 +53,22 @@ function Confetti({
     ctx.scale(DPR, DPR);
   }, []);
 
-  const createConfetti = useCallback(
-    (options: {
-      x: number;
-      y: number;
-      particleCount: number;
-      deg: number;
-      shapeSize: number;
-      spreadDeg: number;
-      colors: string[];
-      shapes?: readonly ['circle', 'square'];
-    }) => {
-      for (let i = 0; i < options.particleCount; i += 1) {
-        particlesRef.current.push(
-          new Particle(
-            options.x,
-            options.y,
-            options.deg,
-            options.colors,
-            options.shapes,
-            options.shapeSize,
-            options.spreadDeg,
-          ),
-        );
-      }
-    },
-    [],
-  );
+  const createConfetti = useCallback(() => {
+    for (let i = 0; i < particleCount; i += 1) {
+      particlesRef.current.push(
+        new Particle(
+          x,
+          y,
+          deg,
+          colors,
+          ['circle', 'square'],
+          shapeSize,
+          spreadDeg,
+          launchSpeed,
+        ),
+      );
+    }
+  }, [x, y, deg, colors, shapeSize, spreadDeg, launchSpeed, particleCount]);
 
   const render = useCallback(() => {
     if (!ctxRef.current) return;
@@ -105,15 +96,7 @@ function Confetti({
         effectDelta > effectInterval &&
         effectCountRef.current < effectCount
       ) {
-        createConfetti({
-          x,
-          y,
-          particleCount,
-          deg,
-          shapeSize,
-          spreadDeg,
-          colors,
-        });
+        createConfetti();
         effectThen = now - (effectDelta % effectInterval);
         effectCountRef.current += 1;
       }
@@ -137,18 +120,7 @@ function Confetti({
     };
 
     animationFrameRef.current = requestAnimationFrame(frame);
-  }, [
-    x,
-    y,
-    particleCount,
-    deg,
-    effectInterval,
-    shapeSize,
-    effectCount,
-    spreadDeg,
-    colors,
-    createConfetti,
-  ]);
+  }, [effectInterval, effectCount, createConfetti]);
 
   useEffect(() => {
     init();
@@ -163,7 +135,6 @@ function Confetti({
 
   useEffect(() => {
     effectCountRef.current = 0;
-    // render();
   }, [effectCount]);
 
   return <canvas className={styles.canvas} ref={canvasRef} />;
