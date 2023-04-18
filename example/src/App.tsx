@@ -13,6 +13,7 @@ const DEFAULT_OPTIONS = {
   x: 0.5,
   y: 0.5,
   colors: ['#ff577f', '#ff884b', '#ffd384', '#fff9b0'],
+  launchSpeed: 1,
 };
 
 function App() {
@@ -57,6 +58,9 @@ function App() {
       .onChange((v) => handleChangeOption('spreadDeg', v));
     confetti.add(target, 'x', 0, 1).onChange((v) => handleChangeOption('x', v));
     confetti.add(target, 'y', 0, 1).onChange((v) => handleChangeOption('y', v));
+    confetti
+      .add(target, 'launchSpeed', 0, 3)
+      .onChange((v) => handleChangeOption('launchSpeed', v));
 
     const colors = gui.addFolder('Colors');
     colors.open();
@@ -84,6 +88,7 @@ function App() {
         x={options.x}
         y={options.y}
         colors={options.colors}
+        launchSpeed={options.launchSpeed}
       />
     </div>
   );

@@ -40,7 +40,7 @@ class Particle {
     this.width = shapeSize;
     this.height = shapeSize;
     this.theta = (Math.PI / 180) * randomNumBetween(deg - spread, deg + spread);
-    this.radius = randomNumBetween(20, 70);
+    this.radius = randomNumBetween(20 * launchSpeed, 70 * launchSpeed);
     this.vx = this.radius * Math.cos(this.theta);
     this.vy = this.radius * Math.sin(this.theta);
     this.friction = 0.87;
@@ -55,19 +55,19 @@ class Particle {
       this.colors[Math.floor(randomNumBetween(0, this.colors.length))],
     );
     this.shapes = shapes;
-    this.shape = this.shapes[Math.floor(randomNumBetween(0, this.shapes.length))];
+    this.shape =
+      this.shapes[Math.floor(randomNumBetween(0, this.shapes.length))];
     this.swingOffset = randomNumBetween(0, Math.PI * 2);
     this.swingSpeed = Math.random() * 0.05 + 0.01;
     this.swingAmplitude = randomNumBetween(0, 0.4);
-
-    console.log(launchSpeed);
   }
 
   update() {
     this.vx *= this.friction;
     this.vy *= this.friction;
     this.vy += this.gravity;
-    if (this.vy > 0) this.vx += Math.sin(this.swingOffset) * this.swingAmplitude;
+    if (this.vy > 0)
+      this.vx += Math.sin(this.swingOffset) * this.swingAmplitude;
     this.x += this.vx;
     this.y += this.vy;
     this.opacity -= 0.004;
