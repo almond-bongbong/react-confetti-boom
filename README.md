@@ -4,11 +4,9 @@ React Confetti Boom is a lightweight, customizable confetti animation component 
 
 [![NPM](https://img.shields.io/npm/v/react-confetti-boom.svg)](https://www.npmjs.com/package/react-confetti-boom)
 
-<p align="center">
-    <a target="_blank" href="https://almond-bongbong.github.io/react-confetti-boom/">
-        <img style="width: 100%" src="https://media0.giphy.com/media/4qKhYtL1yL3v3EhwjS/giphy.gif" />
-    </a>
-</p>
+<div align="center" style="background-color:#000">
+    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGUwYTY2MTMwMjU2ZmY4MTk2MWQxMTYwNGI4OTVmZmE0MWFlN2I2NyZjdD1n/aCoLzfMkpOig89q13S/giphy.gif" />
+</div>
 
 ## Installation
 
