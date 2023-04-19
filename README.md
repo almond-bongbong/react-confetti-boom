@@ -1,14 +1,29 @@
-# React Confetti Boom
+# React Confetti Boom 🎉
 
-React Confetti Boom is a lightweight, customizable confetti animation component for React applications. Add a fun and engaging confetti effect to your app with just a few lines of code.
+![NPM](https://img.shields.io/npm/v/react-confetti-boom.svg)
+![NPM Downloads](https://img.shields.io/npm/dt/react-confetti-boom.svg)
+![License](https://img.shields.io/npm/l/react-confetti-boom)
+![Size](https://img.shields.io/bundlephobia/min/react-confetti-boom)
 
-[![NPM](https://img.shields.io/npm/v/react-confetti-boom.svg)](https://www.npmjs.com/package/react-confetti-boom)
+React Confetti Boom 🎉 is a lightweight and customizable confetti animation component for React applications. Enhance user experience by adding a fun and engaging confetti effect to your app with just a few lines of code.
 
-<div align="center" style="background-color: rgb(0,0,0)">
-    <img src="docs/preview.gif" />
-</div>
+
+<p align="center">
+  <img src="docs/preview.gif" alt="React Confetti Boom preview" />
+</p>
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Demo](#demo)
+- [Props](#props)
+- [Example](#example)
+- [License](#license)
 
 ## Installation
+
+To install React Confetti Boom, run the following command:
 
 ```bash
 npm install react-confetti-boom
@@ -34,7 +49,7 @@ function MyApp() {
 export default MyApp;
 ```
 
-## Demo
+## Live Demo
 
 You can check out the live demo of `react-confetti-boom` in action on the following page: [https://almond-bongbong.github.io/react-confetti-boom/](https://almond-bongbong.github.io/react-confetti-boom/)
 
@@ -87,4 +102,5 @@ This example will render a confetti animation with 50 particles starting at 10% 
 
 ## License
 
-MIT
+This project is licensed under the terms of the MIT License.
+
