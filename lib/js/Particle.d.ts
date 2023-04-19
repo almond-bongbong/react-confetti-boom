@@ -7,7 +7,8 @@ declare class Particle {
     radius: number;
     vx: number;
     vy: number;
-    friction: number;
+    xFriction: number;
+    yFriction: number;
     gravity: number;
     opacity: number;
     rotate: number;

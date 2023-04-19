@@ -1,4 +1,4 @@
-import { randomNumBetween, hexToRgb } from './utils';
+import { hexToRgb, randomNumBetween } from './utils';
 
 class Particle {
   x: number;
@@ -9,7 +9,8 @@ class Particle {
   radius: number;
   vx: number;
   vy: number;
-  friction: number;
+  xFriction: number;
+  yFriction: number;
   gravity: number;
   opacity: number;
   rotate: number;
@@ -43,7 +44,8 @@ class Particle {
     this.radius = randomNumBetween(20 * launchSpeed, 70 * launchSpeed);
     this.vx = this.radius * Math.cos(this.theta);
     this.vy = this.radius * Math.sin(this.theta);
-    this.friction = 0.87;
+    this.xFriction = 0.90;
+    this.yFriction = 0.87;
     this.gravity = 0.55;
     this.opacity = 1;
     this.rotate = randomNumBetween(0, 360);
@@ -63,11 +65,10 @@ class Particle {
   }
 
   update() {
-    this.vx *= this.friction;
-    this.vy *= this.friction;
+    this.vx *= this.xFriction;
+    this.vy *= this.yFriction;
     this.vy += this.gravity;
-    if (this.vy > 0)
-      this.vx += Math.sin(this.swingOffset) * this.swingAmplitude;
+    this.vx += Math.sin(this.swingOffset) * this.swingAmplitude;
     this.x += this.vx;
     this.y += this.vy;
     this.opacity -= 0.004;
