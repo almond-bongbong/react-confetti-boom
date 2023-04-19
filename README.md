@@ -4,9 +4,9 @@ React Confetti Boom is a lightweight, customizable confetti animation component 
 
 [![NPM](https://img.shields.io/npm/v/react-confetti-boom.svg)](https://www.npmjs.com/package/react-confetti-boom)
 
-<p align="center" style="background-color:#000">
+<p align="center">
     <a target="_blank" href="https://almond-bongbong.github.io/react-confetti-boom/">
-        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMGUwYTY2MTMwMjU2ZmY4MTk2MWQxMTYwNGI4OTVmZmE0MWFlN2I2NyZjdD1n/aCoLzfMkpOig89q13S/giphy.gif" />
+        <img style="width: 100%" src="https://media0.giphy.com/media/4qKhYtL1yL3v3EhwjS/giphy.gif" />
     </a>
 </p>
 
@@ -42,7 +42,6 @@ You can check out the live demo of `react-confetti-boom` in action on the follow
 
 The demo page provides an interactive way to customize the confetti settings, such as starting position, particle count, angle, shape size, and colors. This helps you visualize how the confetti effect will look in your own project.
 
-
 ## Props
 
 | Name           | Type     | Default                                      | Description                                                                  |
@@ -56,6 +55,7 @@ The demo page provides an interactive way to customize the confetti settings, su
 | effectInterval | number   | 3000                                         | Interval (in ms) between consecutive confetti bursts                         |
 | effectCount    | number   | 1                                            | Number of confetti bursts to render                                          |
 | colors         | string[] | ['#ff577f', '#ff884b', '#ffd384', '#fff9b0'] | Array of colors for confetti particles, in hex format                        |
+| launchSpeed    | number   | 1                                            | Initial speed at which particles are launched                                |
 
 ## Example
 
