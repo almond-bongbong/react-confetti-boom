@@ -61,7 +61,7 @@ class Particle {
       this.shapes[Math.floor(randomNumBetween(0, this.shapes.length))];
     this.swingOffset = randomNumBetween(0, Math.PI * 2);
     this.swingSpeed = Math.random() * 0.05 + 0.01;
-    this.swingAmplitude = randomNumBetween(0, 0.4);
+    this.swingAmplitude = randomNumBetween(0.1, 0.2);
   }
 
   update() {
@@ -106,7 +106,7 @@ class Particle {
     const translateXAlpha = this.width * 1.3;
     const translateYAlpha = this.height * 1.3;
     ctx.translate(this.x + translateXAlpha, this.y + translateYAlpha);
-    ctx.rotate((Math.PI / 180) * this.rotate);
+    ctx.rotate((Math.PI / 100) * this.rotate);
     ctx.translate(-(this.x + translateXAlpha), -(this.y + translateYAlpha));
     // eslint-disable-next-line no-param-reassign
     ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${this.opacity})`;

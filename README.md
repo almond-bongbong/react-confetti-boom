@@ -9,7 +9,7 @@ React Confetti Boom 🎉 is a lightweight and customizable confetti animation co
 
 
 <p align="center">
-  <img src="docs/preview.gif" alt="React Confetti Boom preview" />
+  <img src="https://raw.githubusercontent.com/almond-bongbong/react-confetti-boom/main/docs/preview.gif" alt="React Confetti Boom preview" />
 </p>
 
 ## Table of Contents
