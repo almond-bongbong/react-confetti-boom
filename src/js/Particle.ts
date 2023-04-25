@@ -46,7 +46,7 @@ class Particle {
     this.vy = this.radius * Math.sin(this.theta);
     this.xFriction = 0.90;
     this.yFriction = 0.87;
-    this.gravity = 0.55;
+    this.gravity = randomNumBetween(0.50, 0.60);
     this.opacity = 1;
     this.rotate = randomNumBetween(0, 360);
     this.widthDelta = randomNumBetween(0, 360);
