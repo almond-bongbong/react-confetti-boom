@@ -16,7 +16,7 @@ React Confetti Boom 🎉 is a lightweight and customizable confetti animation co
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Demo](#demo)
+- [Live Demo](#live-demo)
 - [Props](#props)
 - [Example](#example)
 - [License](#license)
