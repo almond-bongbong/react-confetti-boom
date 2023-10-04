@@ -1,35 +1,57 @@
 import React, { useCallback, useEffect, useRef } from 'react';
-import Particle from './js/Particle';
+import Particle from './model/Particle';
 import styles from './index.module.scss';
+import { randomNumBetween } from './libs/utils';
 
 const FPS = 60;
 const INTERVAL = 1000 / FPS;
 
-interface Props {
-  x?: number;
-  y?: number;
-  particleCount?: number;
-  deg?: number;
-  shapeSize?: number;
-  spreadDeg?: number;
-  effectInterval?: number;
-  effectCount?: number;
-  colors?: string[];
-  launchSpeed?: number;
-}
+type Props =
+  | {
+      mode?: 'boom';
+      x?: number;
+      y?: number;
+      particleCount?: number;
+      deg?: number;
+      shapeSize?: number;
+      spreadDeg?: number;
+      effectInterval?: number;
+      effectCount?: number;
+      colors?: string[];
+      launchSpeed?: number;
+    }
+  | {
+      mode: 'fall';
+      particleCount?: number;
+      shapeSize?: number;
+      colors?: string[];
+    };
 
-function Confetti({
-  x = 0.5,
-  y = 0.5,
-  particleCount = 30,
-  deg = 270,
-  shapeSize = 12,
-  spreadDeg = 30,
-  effectInterval = 3000,
-  effectCount = 1,
-  colors = ['#ff577f', '#ff884b', '#ffd384', '#fff9b0'],
-  launchSpeed = 1,
-}: Props) {
+function Confetti(props: Props) {
+  // common props
+  const {
+    mode = 'boom',
+    particleCount = 30,
+    shapeSize = 12,
+    colors = ['#ff577f', '#ff884b', '#ffd384', '#fff9b0'],
+  } = props;
+
+  // boom props
+  const {
+    x = 0.5,
+    y = 0.5,
+    deg = 270,
+    spreadDeg = 30,
+    effectInterval = 3000,
+    effectCount = 1,
+    launchSpeed = 1,
+  } = props.mode === 'boom'
+    ? props
+    : {
+        effectInterval: 1,
+        effectCount: Infinity,
+      };
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D>();
   const particlesRef = useRef<Particle[]>([]);
@@ -54,21 +76,41 @@ function Confetti({
   }, []);
 
   const createConfetti = useCallback(() => {
-    for (let i = 0; i < particleCount; i += 1) {
+    const isFallMode = mode === 'fall';
+    const effectiveCount = isFallMode ? particleCount / 30 : particleCount;
+    const effectiveX = isFallMode ? randomNumBetween(0, 1) : x;
+    const effectiveY = isFallMode ? randomNumBetween(-0.1, -0.3) : y;
+    const effectiveDeg = isFallMode ? 270 : deg;
+    const effectiveSpreadDeg = isFallMode ? 0 : spreadDeg;
+    const effectiveLaunchSpeed = isFallMode ? 0 : launchSpeed;
+    const effectiveOpacityDelta = isFallMode ? 5 / window.innerHeight : 0.004;
+
+    for (let i = 0; i < effectiveCount; i += 1) {
       particlesRef.current.push(
         new Particle(
-          x,
-          y,
-          deg,
+          effectiveX,
+          effectiveY,
+          effectiveDeg,
           colors,
           ['circle', 'square'],
           shapeSize,
-          spreadDeg,
-          launchSpeed,
+          effectiveSpreadDeg,
+          effectiveLaunchSpeed,
+          effectiveOpacityDelta,
         ),
       );
     }
-  }, [x, y, deg, colors, shapeSize, spreadDeg, launchSpeed, particleCount]);
+  }, [
+    mode,
+    x,
+    y,
+    deg,
+    colors,
+    shapeSize,
+    spreadDeg,
+    launchSpeed,
+    particleCount,
+  ]);
 
   const render = useCallback(() => {
     if (!ctxRef.current) return;
@@ -91,7 +133,6 @@ function Confetti({
       if (delta < INTERVAL) return;
 
       ctxRef.current.clearRect(0, 0, canvas.width, canvas.height);
-
       if (
         effectDelta > effectInterval &&
         effectCountRef.current < effectCount
@@ -141,3 +182,4 @@ function Confetti({
 }
 
 export default Confetti;
+export type { Props as ConfettiProps };

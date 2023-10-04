@@ -1,5 +1,6 @@
 /// <reference types="react" />
-interface Props {
+type Props = {
+    mode?: 'boom';
     x?: number;
     y?: number;
     particleCount?: number;
@@ -10,6 +11,12 @@ interface Props {
     effectCount?: number;
     colors?: string[];
     launchSpeed?: number;
-}
-declare function Confetti({ x, y, particleCount, deg, shapeSize, spreadDeg, effectInterval, effectCount, colors, launchSpeed, }: Props): JSX.Element;
+} | {
+    mode: 'fall';
+    particleCount?: number;
+    shapeSize?: number;
+    colors?: string[];
+};
+declare function Confetti(props: Props): JSX.Element;
 export default Confetti;
+export type { Props as ConfettiProps };

@@ -11,7 +11,8 @@
   "scripts": {
     "build": "rollup -c",
     "build:watch": "rollup -c -w",
-    "dev": "npm run build:watch"
+    "dev": "npm run build:watch",
+    "dev:example": "cd example && npm run dev"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
