@@ -344,4 +344,4 @@ dist
 ./example/node_modules
 ./example/build
 
-./lib
+lib
