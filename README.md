@@ -7,12 +7,8 @@
 ![License](https://img.shields.io/npm/l/react-confetti-boom)
 ![Size](https://img.shields.io/bundlephobia/min/react-confetti-boom)
 
-<p align="center">
-    <a href="https://almond-bongbong.github.io/react-confetti-boom/" target="_blank">
-        <img src="https://github.com/almond-bongbong/react-confetti-boom/raw/main/docs/preview_boom.gif" alt="Boom Mode Preview" width="45%" />
-        <img src="https://github.com/almond-bongbong/react-confetti-boom/raw/main/docs/preview_fall.gif" alt="Fall Mode Preview" width="45%" />
-    </a>
-</p>
+| ![boom](https://github.com/almond-bongbong/react-confetti-boom/raw/main/docs/preview_boom.gif) | ![fall](https://github.com/almond-bongbong/react-confetti-boom/raw/main/docs/preview_fall.gif) |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
 
 ## 🌈 Why React Confetti Boom?
 
@@ -76,15 +72,10 @@ Fine-tune the celebration with our comprehensive props:
 ## 🎉 Example Usage
 
 ```jsx
-<Confetti
-  mode="boom"
-  particleCount={50}
-  colors={['#ff577f', '#ff884b']}
-/>
+<Confetti mode="boom" particleCount={50} colors={['#ff577f', '#ff884b']} />
 ```
 
 Celebrate achievements with a burst of color!
-
 
 ## ⭐ Support React Confetti Boom
 
@@ -96,8 +87,6 @@ Loving React Confetti Boom? Here's how you can help us make the project even bet
 
 Let's celebrate coding, one confetti burst at a time! 🎉
 
-
 ## 📜 License
 
 Proudly open-sourced under the MIT License.
-
