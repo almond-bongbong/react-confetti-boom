@@ -25,6 +25,7 @@ type Props =
       particleCount?: number;
       shapeSize?: number;
       colors?: string[];
+      fadeOutHeight?: number;
     };
 
 function Confetti(props: Props) {
@@ -36,7 +37,7 @@ function Confetti(props: Props) {
     colors = ['#ff577f', '#ff884b', '#ffd384', '#fff9b0'],
   } = props;
 
-  // boom props
+  // boom or common props
   const {
     x = 0.5,
     y = 0.5,
@@ -51,6 +52,9 @@ function Confetti(props: Props) {
         effectInterval: 1,
         effectCount: Infinity,
       };
+
+  // fall props (default: 80% of the screen height)
+  const { fadeOutHeight = 0.8 } = props.mode === 'fall' ? props : {};
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D>();
@@ -83,7 +87,11 @@ function Confetti(props: Props) {
     const effectiveDeg = isFallMode ? 270 : deg;
     const effectiveSpreadDeg = isFallMode ? 0 : spreadDeg;
     const effectiveLaunchSpeed = isFallMode ? 0 : launchSpeed;
-    const effectiveOpacityDelta = isFallMode ? 5 / window.innerHeight : 0.004;
+
+    // opacity delta
+    const effectiveOpacityDelta = isFallMode
+      ? 3.4 / fadeOutHeight / window.innerHeight
+      : 0.004;
 
     for (let i = 0; i < effectiveCount; i += 1) {
       particlesRef.current.push(
@@ -110,6 +118,7 @@ function Confetti(props: Props) {
     spreadDeg,
     launchSpeed,
     particleCount,
+    fadeOutHeight,
   ]);
 
   const render = useCallback(() => {

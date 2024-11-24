@@ -16,6 +16,7 @@ const DEFAULT_OPTIONS = {
   y: 0.5,
   colors: ['#ff577f', '#ff884b', '#ffd384', '#fff9b0'],
   launchSpeed: 1,
+  fadeOutHeight: 0.8,
 };
 
 function App() {
@@ -74,6 +75,12 @@ function App() {
         .onChange((v) => handleChangeOption('launchSpeed', v));
     }
 
+    if (options.mode === 'fall') {
+      confetti
+        .add(target, 'fadeOutHeight', 0, 1)
+        .onChange((v) => handleChangeOption('fadeOutHeight', v));
+    }
+
     const colors = gui.addFolder('Colors');
     colors.open();
 
@@ -104,6 +111,9 @@ function App() {
           x: options.x,
           y: options.y,
           launchSpeed: options.launchSpeed,
+        })}
+        {...(options.mode === 'fall' && {
+          fadeOutHeight: options.fadeOutHeight,
         })}
       />
     </div>
