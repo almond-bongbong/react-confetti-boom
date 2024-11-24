@@ -53,19 +53,20 @@ Fine-tune the celebration with our comprehensive props:
 <details>
 <summary>And much more!</summary>
 
-| Name           | Type             | Default                                      | Description                                                                         |
-| -------------- | ---------------- | -------------------------------------------- | ----------------------------------------------------------------------------------- |
-| mode           | 'boom' \| 'fall' | 'boom'                                       | Mode for confetti animation. 'boom' for explosion-like, 'fall' for rain-like effect |
-| x              | number           | 0.5                                          | Horizontal starting position of confetti as a ratio of canvas width (0 to 1)        |
-| y              | number           | 0.5                                          | Vertical starting position of confetti as a ratio of canvas height (0 to 1)         |
-| particleCount  | number           | 30                                           | Number of confetti particles to generate                                            |
-| deg            | number           | 270                                          | Initial angle (in degrees) at which particles are emitted                           |
-| shapeSize      | number           | 12                                           | Size of confetti particles                                                          |
-| spreadDeg      | number           | 30                                           | Angle (in degrees) that particles can deviate from the initial angle (deg)          |
-| effectInterval | number           | 3000                                         | Interval (in ms) between consecutive confetti bursts                                |
-| effectCount    | number           | 1                                            | Number of confetti bursts to render                                                 |
-| colors         | string[]         | ['#ff577f', '#ff884b', '#ffd384', '#fff9b0'] | Array of colors for confetti particles, in hex format                               |
-| launchSpeed    | number           | 1                                            | Initial speed at which particles are launched                                       |
+| Name           | Type             | Default                                      | Description                                                                                 |
+| -------------- | ---------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| mode           | 'boom' \| 'fall' | 'boom'                                       | Mode for confetti animation. 'boom' for explosion-like, 'fall' for rain-like effect         |
+| x              | number           | 0.5                                          | Horizontal starting position of confetti as a ratio of canvas width (0 to 1)                |
+| y              | number           | 0.5                                          | Vertical starting position of confetti as a ratio of canvas height (0 to 1)                 |
+| particleCount  | number           | 30                                           | Number of confetti particles to generate                                                    |
+| deg            | number           | 270                                          | Initial angle (in degrees) at which particles are emitted                                   |
+| shapeSize      | number           | 12                                           | Size of confetti particles                                                                  |
+| spreadDeg      | number           | 30                                           | Angle (in degrees) that particles can deviate from the initial angle (deg)                  |
+| effectInterval | number           | 3000                                         | Interval (in ms) between consecutive confetti bursts                                        |
+| effectCount    | number           | 1                                            | Number of confetti bursts to render                                                         |
+| colors         | string[]         | ['#ff577f', '#ff884b', '#ffd384', '#fff9b0'] | Array of colors for confetti particles, in hex format                                       |
+| launchSpeed    | number           | 1                                            | Initial speed at which particles are launched                                               |
+| fadeOutHeight  | number           | 0.8                                          | Height ratio (0 to 1) where particles completely disappear in 'fall' mode (added in v1.1.0) |
 
 </details>
 
