@@ -46,7 +46,7 @@ function Confetti(props: Props) {
     effectInterval = 3000,
     effectCount = 1,
     launchSpeed = 1,
-  } = props.mode === 'boom'
+  } = props.mode === 'boom' || props.mode === undefined
     ? props
     : {
         effectInterval: 1,
