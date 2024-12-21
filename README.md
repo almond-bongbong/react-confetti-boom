@@ -50,9 +50,6 @@ Fine-tune the celebration with our comprehensive props:
 - **colors**: Array of hex values to paint your confetti.
 - **particleCount**: How much confetti to burst into the scene.
 
-<details>
-<summary>And much more!</summary>
-
 | Name           | Type             | Default                                      | Description                                                                                 |
 | -------------- | ---------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | mode           | 'boom' \| 'fall' | 'boom'                                       | Mode for confetti animation. 'boom' for explosion-like, 'fall' for rain-like effect         |
@@ -67,8 +64,6 @@ Fine-tune the celebration with our comprehensive props:
 | colors         | string[]         | ['#ff577f', '#ff884b', '#ffd384', '#fff9b0'] | Array of colors for confetti particles, in hex format                                       |
 | launchSpeed    | number           | 1                                            | Initial speed at which particles are launched                                               |
 | fadeOutHeight  | number           | 0.8                                          | Height ratio (0 to 1) where particles completely disappear in 'fall' mode (added in v1.1.0) |
-
-</details>
 
 ## 🎉 Example Usage
 
