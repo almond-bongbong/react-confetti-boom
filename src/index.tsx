@@ -1,7 +1,9 @@
-import React, { useCallback, useEffect, useRef } from 'react';
-import Particle from './model/Particle';
+'use client';
+
+import React, { ReactNode, useCallback, useEffect, useRef } from 'react';
 import styles from './index.module.scss';
 import { randomNumBetween } from './libs/utils';
+import Particle from './model/Particle';
 
 const FPS = 60;
 const INTERVAL = 1000 / FPS;
@@ -28,7 +30,7 @@ type Props =
       fadeOutHeight?: number;
     };
 
-function Confetti(props: Props) {
+function Confetti(props: Props): ReactNode {
   // common props
   const {
     mode = 'boom',
