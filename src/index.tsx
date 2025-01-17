@@ -1,12 +1,4 @@
-'use client';
-
-import React, {
-  ReactElement,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useRef,
-} from 'react';
+import React, { ReactElement, useCallback, useEffect, useRef } from 'react';
 import styles from './index.module.scss';
 import { randomNumBetween } from './libs/utils';
 import Particle from './model/Particle';
