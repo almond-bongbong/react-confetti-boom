@@ -1,12 +1,20 @@
+import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
+import eslint from '@rollup/plugin-eslint';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript2';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
-import babel from '@rollup/plugin-babel';
-import eslint from '@rollup/plugin-eslint';
+import typescript from 'rollup-plugin-typescript2';
 
-import packageJson from './package.json' assert { type: 'json' };
+import fs from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const configPath = join(
+  dirname(fileURLToPath(import.meta.url)),
+  './package.json',
+);
+const packageJson = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
 const extensions = ['js', 'jsx', 'ts', 'tsx', 'mjs'];
 
