@@ -19,6 +19,9 @@ type Props =
       effectCount?: number;
       colors?: string[];
       launchSpeed?: number;
+      opacityDeltaMultiplier?: number;
+      className?: string;
+      style?: React.CSSProperties;
     }
   | {
       mode: 'fall';
@@ -26,6 +29,8 @@ type Props =
       shapeSize?: number;
       colors?: string[];
       fadeOutHeight?: number;
+      className?: string;
+      style?: React.CSSProperties;
     };
 
 function Confetti(props: Props): ReactElement {
@@ -35,6 +40,8 @@ function Confetti(props: Props): ReactElement {
     particleCount = 30,
     shapeSize = 12,
     colors = ['#ff577f', '#ff884b', '#ffd384', '#fff9b0'],
+    className,
+    style,
   } = props;
 
   // boom or common props
@@ -46,6 +53,7 @@ function Confetti(props: Props): ReactElement {
     effectInterval = 3000,
     effectCount = 1,
     launchSpeed = 1,
+    opacityDeltaMultiplier = 1,
   } = props.mode === 'boom' || props.mode === undefined
     ? props
     : {
@@ -87,7 +95,7 @@ function Confetti(props: Props): ReactElement {
     // opacity delta
     const effectiveOpacityDelta = isFallMode
       ? 3.4 / fadeOutHeight / window.innerHeight
-      : 0.004;
+      : 0.004 * opacityDeltaMultiplier;
 
     for (let i = 0; i < effectiveCount; i += 1) {
       particlesRef.current.push(
@@ -115,6 +123,7 @@ function Confetti(props: Props): ReactElement {
     launchSpeed,
     particleCount,
     fadeOutHeight,
+    opacityDeltaMultiplier,
   ]);
 
   const render = useCallback(() => {
@@ -183,7 +192,13 @@ function Confetti(props: Props): ReactElement {
     effectCountRef.current = 0;
   }, [effectCount]);
 
-  return <canvas className={styles.canvas} ref={canvasRef} />;
+  return (
+    <canvas
+      className={[styles.canvas, className].filter(Boolean).join(' ')}
+      ref={canvasRef}
+      style={style}
+    />
+  );
 }
 
 export default Confetti;

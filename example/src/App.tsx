@@ -17,6 +17,7 @@ const DEFAULT_OPTIONS = {
   colors: ['#ff577f', '#ff884b', '#ffd384', '#fff9b0'],
   launchSpeed: 1,
   fadeOutHeight: 0.8,
+  opacityDeltaMultiplier: 1,
 };
 
 function App() {
@@ -73,6 +74,9 @@ function App() {
       confetti
         .add(target, 'launchSpeed', 0, 3)
         .onChange((v) => handleChangeOption('launchSpeed', v));
+      confetti
+        .add(target, 'opacityDeltaMultiplier', 0, 3)
+        .onChange((v) => handleChangeOption('opacityDeltaMultiplier', v));
     }
 
     if (options.mode === 'fall') {
@@ -111,6 +115,7 @@ function App() {
           x: options.x,
           y: options.y,
           launchSpeed: options.launchSpeed,
+          opacityDeltaMultiplier: options.opacityDeltaMultiplier,
         })}
         {...(options.mode === 'fall' && {
           fadeOutHeight: options.fadeOutHeight,
