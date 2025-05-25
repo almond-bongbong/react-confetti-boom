@@ -37,9 +37,8 @@ class Particle {
     launchSpeed = 1,
     opacityDelta = 0.004,
   ) {
-    const DPR = window.devicePixelRatio > 1 ? 2 : 1;
-    this.x = x * window.innerWidth * DPR;
-    this.y = y * window.innerHeight * DPR;
+    this.x = x * window.innerWidth;
+    this.y = y * window.innerHeight;
     this.width = shapeSize;
     this.height = shapeSize;
     this.theta = (Math.PI / 180) * randomNumBetween(deg - spread, deg + spread);
