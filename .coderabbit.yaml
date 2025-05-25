@@ -13,12 +13,12 @@ reviews:
   collapse_walkthrough: false
   # path_filters:
   #   - '!**/README.md'
-  path_instructions:
-    - path: '**/*.sql'
-      instructions: >
-        As a team convention, we do not specify FK constraints. Please avoid suggesting adding FK constraints in code reviews.
-        This file is a TypeScript file, but the SQL statements that modify the table structure are written as strings. For columns used as primary keys (PK) or foreign keys (FK), you must follow the convention of specifying the column type as "bigint".
-        If a table column name is "id" or ends with "_id", verify that the column type is "bigint". If the SQL is written with a type other than "bigint", issue a warning. This convention is mandatory, so please raise the severity level of the warning. Add the following characters to the beginning of the warning message so that users can easily notice it: 🚨🚨🚨
+  # path_instructions:
+  #   - path: '**/*.sql'
+  #     instructions: >
+  #       As a team convention, we do not specify FK constraints. Please avoid suggesting adding FK constraints in code reviews.
+  #       This file is a TypeScript file, but the SQL statements that modify the table structure are written as strings. For columns used as primary keys (PK) or foreign keys (FK), you must follow the convention of specifying the column type as "bigint".
+  #       If a table column name is "id" or ends with "_id", verify that the column type is "bigint". If the SQL is written with a type other than "bigint", issue a warning. This convention is mandatory, so please raise the severity level of the warning. Add the following characters to the beginning of the warning message so that users can easily notice it: 🚨🚨🚨
   abort_on_close: true
   auto_review:
     enabled: true
