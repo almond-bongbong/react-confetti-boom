@@ -39,13 +39,6 @@ reviews:
       timeout_ms: 90000
     languagetool:
       enabled: true
-      disabled_rules:
-        - EN_UNPAIRED_BRACKETS
-        - EN_UNPAIRED_QUOTES
-      disabled_categories:
-        - TYPOS
-        - TYPOGRAPHY
-        - CASING
       enabled_only: false
       level: default
       enabled_rules: []

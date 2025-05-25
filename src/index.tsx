@@ -95,7 +95,7 @@ function Confetti(props: Props): ReactElement {
     // opacity delta
     const effectiveOpacityDelta = isFallMode
       ? 3.4 / fadeOutHeight / window.innerHeight
-      : 0.004 * opacityDeltaMultiplier;
+      : 0.004 * Math.max(0.1, opacityDeltaMultiplier);
 
     for (let i = 0; i < effectiveCount; i += 1) {
       particlesRef.current.push(
