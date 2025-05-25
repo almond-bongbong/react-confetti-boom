@@ -71,8 +71,6 @@ function Confetti(props: Props): ReactElement {
     ctxRef.current = ctx;
     const canvasWidth = window.innerWidth;
     const canvasHeight = window.innerHeight;
-    canvas.style.width = `${canvasWidth}px`;
-    canvas.style.height = `${canvasHeight}px`;
     canvas.width = canvasWidth;
     canvas.height = canvasHeight;
   }, []);

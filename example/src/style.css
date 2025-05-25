@@ -7,3 +7,14 @@ body {
   overflow: hidden;
   background: #000;
 }
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
