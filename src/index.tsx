@@ -28,6 +28,15 @@ type Props =
       fadeOutHeight?: number;
     };
 
+/**
+ * Renders a canvas-based confetti animation with customizable modes and effects.
+ *
+ * Supports two modes: `'boom'` for burst-style confetti at a specific position and angle, and `'fall'` for continuous falling confetti from the top of the screen. Animation parameters such as particle count, shape size, colors, spread, launch speed, and fade-out behavior can be configured via props.
+ *
+ * @returns A React canvas element displaying the confetti animation.
+ *
+ * @remark The canvas automatically resizes to fill the window and does not account for device pixel ratio scaling.
+ */
 function Confetti(props: Props): ReactElement {
   // common props
   const {
