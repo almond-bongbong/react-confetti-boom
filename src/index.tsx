@@ -69,14 +69,12 @@ function Confetti(props: Props): ReactElement {
     if (!canvas || !ctx) return;
 
     ctxRef.current = ctx;
-    const DPR = window.devicePixelRatio > 1 ? 2 : 1;
     const canvasWidth = window.innerWidth;
     const canvasHeight = window.innerHeight;
     canvas.style.width = `${canvasWidth}px`;
     canvas.style.height = `${canvasHeight}px`;
-    canvas.width = canvasWidth * DPR;
-    canvas.height = canvasHeight * DPR;
-    ctx.scale(DPR, DPR);
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
   }, []);
 
   const createConfetti = useCallback(() => {
