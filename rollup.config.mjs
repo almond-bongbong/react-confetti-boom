@@ -32,6 +32,14 @@ export default {
       sourcemap: true,
     },
   ],
+  external: [
+    'react',
+    'react-dom',
+    /^react$/,
+    /^react-dom$/,
+    /^@types\/react$/,
+    /^@types\/react-dom$/,
+  ],
   plugins: [
     eslint({
       include: ['src/**/*.ts', 'src/**/*.tsx'],

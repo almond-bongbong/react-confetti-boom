@@ -1,4 +1,4 @@
-import React, { ReactElement, useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import styles from './index.module.scss';
 import { randomNumBetween } from './libs/utils';
 import Particle from './model/Particle';
@@ -33,7 +33,7 @@ type Props =
       style?: React.CSSProperties;
     };
 
-function Confetti(props: Props): ReactElement {
+function Confetti(props: Props): React.ReactNode {
   // common props
   const {
     mode = 'boom',
