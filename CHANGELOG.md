@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.1] - 2025-05-28
+
+### Fixed
+
+- Fixed React 19 compatibility issues
+  - Removed direct React dependencies
+  - Updated peerDependencies to support React 19
+  - Configured rollup to properly externalize React modules
+
 ## [2.0.0] - 2025-05-26
 
 ### Added
